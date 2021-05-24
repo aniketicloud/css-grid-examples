@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid-track-sizes-01-static</title>
+    <link rel="stylesheet" href="../01-common-style//shared.css" />
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        display: grid;
+        /* min-content = make track as small as possible, without breaking words */
+        /* Notice the dash makes another line */
+        grid-template-columns: 1fr min-content 1fr;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-item">1fr</div>
+    <div class="grid-item">
+      min-content = make track as <strong style="color: salmon;">small</strong> as <i style="color: sandybrown;">possible</i>, without breaking words
+    </div>
+    <div class="grid-item">1fr</div>
+  </body>
+</html>
