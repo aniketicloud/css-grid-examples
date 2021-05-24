@@ -13,16 +13,20 @@
       }
       body {
         display: grid;
-        /* min-content = make track as small as possible, without breaking words */
-        /* Notice the dash makes another line */
-        grid-template-columns: 1fr min-content 1fr;
+        /* fit-content(max size) = Fit track size to the content, but don't go above specified value */
+        /* think of the word 'fit'. We are trying to fit the track size to the content, But
+          we wont allow it to go ABOVE the value we specified
+         */
+        grid-template-columns: 1fr fit-content(30em) fit-content(30em) 1fr;
       }
     </style>
   </head>
   <body>
     <div class="grid-item">1fr</div>
+    <div class="grid-item">fit-content(30em)</div>
     <div class="grid-item">
-      min-content = make track as <strong style="color: salmon;">small</strong> as <i style="color: sandybrown;">possible</i>, without breaking words
+      fit-content(30em) : but there is more than 30 em worth of text in this
+      column. And I am just writing this to make it longer. LOL
     </div>
     <div class="grid-item">1fr</div>
   </body>

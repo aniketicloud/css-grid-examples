@@ -13,16 +13,17 @@
       }
       body {
         display: grid;
-        /* min-content = make track as small as possible, without breaking words */
-        /* Notice the dash makes another line */
-        grid-template-columns: 1fr min-content 1fr;
+        /* max-content = make track as large as necessary to contain its content */
+        grid-template-columns: 1fr max-content 1fr;
       }
     </style>
   </head>
   <body>
     <div class="grid-item">1fr</div>
     <div class="grid-item">
-      min-content = make track as <strong style="color: salmon;">small</strong> as <i style="color: sandybrown;">possible</i>, without breaking words
+      min-content = make track as
+      <strong style="color: salmon">large</strong> as
+      <i style="color: sandybrown">necessary</i>to contain its content
     </div>
     <div class="grid-item">1fr</div>
   </body>

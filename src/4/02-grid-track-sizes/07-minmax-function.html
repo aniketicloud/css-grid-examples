@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Grid-track-sizes-01-static</title>
-    <link rel="stylesheet" href="../01-common-style//shared.css" />
+    <link rel="stylesheet" href="../01-common-style/shared.css" />
     <style>
       html,
       body {
@@ -13,19 +13,15 @@
       }
       body {
         display: grid;
-        /* max-content = make track as large as necessary to contain its content */
-        /* Notice the dash makes another line */
-        grid-template-columns: 1fr max-content 1fr;
+        /* minmax(min size, max-size) = Function to specify minimum and maximum values for a track */
+        /* gather smallest and largest track it could be, and let CSS Grid do the rest */
+        grid-template-columns: 1fr minmax(max-content, 50%) 1fr;
       }
     </style>
   </head>
   <body>
     <div class="grid-item">1fr</div>
-    <div class="grid-item">
-      min-content = make track as
-      <strong style="color: salmon">large</strong> as
-      <i style="color: sandybrown">necessary</i>to contain its content
-    </div>
+    <div class="grid-item">50% of the width. It will never break</div>
     <div class="grid-item">1fr</div>
   </body>
 </html>
