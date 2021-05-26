@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Shorthands</title>
+    <link rel="stylesheet" href="../01-common-style/shared.css" />
+    <style>
+      body {
+        display: grid;
+        /* !important Just rememeber that these shorthands is 
+          not to write short hand code
+          but to write easy to understand: .; */
+
+        /* repeat(number of repeatation, track sizes) */
+        /* a function to repeat a pattern of track sizes(1fr, 20em, 100px etc) */
+
+        /* 01 */
+        /* grid-template-columns: repeat(4, 1fr); */
+        /* grid-template-columns: repeat(4, 1fr 2fr); */
+        /* grid-template-columns: repeat(4, 1fr 2fr 3fr); */
+
+        /* 02 */
+        /* number of repeatation can be auto-fill and give static track size(100px, 10em, 35rem) */
+        /* grid-template-columns: repeat(auto-fill, 2em); */
+        /* grid-template-columns: repeat(auto-fill, 2em 3em); */
+        /* grid-template-columns: repeat(auto-fill, 2em 3em 5em); */
+        /* minmax(min-size, max-size) */
+        /* grid-template-columns: repeat(auto-fill, minmax(15em, 1fr)); */
+
+        /* 04 */
+        /* Shorthand these grid-template-row & grid-template-column 
+          to grid-template or grid  
+      */
+        /* grid-template => property to 'consolidate' grid-template-rows and grid-template columns */
+        /* grid => things grid-template does and some additional things */
+        /* grid-template-rows: 20em 17em 13em 11em 9em 6em; */
+        /* grid-template-columns: repeat(4, 1fr); */
+        /* !important  DO NOT USE grid-template. as CSS working groups suggests to 
+      use grid instead grid-template  */
+        /* syntax is like this => grid: <row-track-sizes> / <column-track-sizes> */
+        grid: 20em 17em 13em 11em 9em 6em / repeat(4, 1fr);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- emmet shortcut => div.grid-item{$}*24 -->
+    <div class="grid-item">1</div>
+    <div class="grid-item">2</div>
+    <div class="grid-item">3</div>
+    <div class="grid-item">4</div>
+    <div class="grid-item">5</div>
+    <div class="grid-item">6</div>
+    <div class="grid-item">7</div>
+    <div class="grid-item">8</div>
+    <div class="grid-item">9</div>
+    <div class="grid-item">10</div>
+    <div class="grid-item">11</div>
+    <div class="grid-item">12</div>
+    <div class="grid-item">13</div>
+    <div class="grid-item">14</div>
+    <div class="grid-item">15</div>
+    <div class="grid-item">16</div>
+    <div class="grid-item">17</div>
+    <div class="grid-item">18</div>
+    <div class="grid-item">19</div>
+    <div class="grid-item">20</div>
+    <div class="grid-item">21</div>
+    <div class="grid-item">22</div>
+    <div class="grid-item">23</div>
+    <div class="grid-item">24</div>
+  </body>
+</html>
