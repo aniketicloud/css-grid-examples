@@ -29,17 +29,24 @@
         /* minmax(min-size, max-size) */
         /* grid-template-columns: repeat(auto-fill, minmax(15em, 1fr)); */
 
+        /* -------------------------------------------- */
         /* 04 */
-        /* Shorthand these grid-template-row & grid-template-column 
+        /* -------------------------------------------- */
+        /* Shorthand grid-template-row & grid-template-column 
           to grid-template or grid  
-      */
+        */
+
         /* grid-template => property to 'consolidate' grid-template-rows and grid-template columns */
         /* grid => things grid-template does and some additional things */
+
+
+        /* !important  DO NOT USE grid-template. as CSS working groups suggests to 
+        use grid instead grid-template  */
+
+        /* syntax is like this => grid: <row-track-sizes> / <column-track-sizes> */
+
         /* grid-template-rows: 20em 17em 13em 11em 9em 6em; */
         /* grid-template-columns: repeat(4, 1fr); */
-        /* !important  DO NOT USE grid-template. as CSS working groups suggests to 
-      use grid instead grid-template  */
-        /* syntax is like this => grid: <row-track-sizes> / <column-track-sizes> */
         grid: 20em 17em 13em 11em 9em 6em / repeat(4, 1fr);
       }
     </style>
