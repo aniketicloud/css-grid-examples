@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Shorthands</title>
+    <link rel="stylesheet" href="../01-common-style/shared.css" />
+    <style>
+      body {
+        display: grid;
+        /* 
+        grid-auto-flow => whether the grid fills 'rows or columns' first
+        while assigning grid items 
+        Default : row [no need to state this, row is default set on display grid]
+        */
+        
+        grid-template-rows: repeat(2, 10em);
+        grid-template-columns: repeat(7, 1fr);
+        
+        /* 01 */
+        /* Notice which cells are empty without column auto flow */
+        grid-auto-flow: column;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- emmet shortcut => div.grid-item{$}*11 -->
+    <div class="grid-item">1</div>
+    <div class="grid-item">2</div>
+    <div class="grid-item">3</div>
+    <div class="grid-item">4</div>
+    <div class="grid-item">5</div>
+    <div class="grid-item">6</div>
+    <div class="grid-item">7</div>
+    <div class="grid-item">8</div>
+    <div class="grid-item">9</div>
+    <div class="grid-item">10</div>
+    <div class="grid-item">11</div>
+  </body>
+</html>
