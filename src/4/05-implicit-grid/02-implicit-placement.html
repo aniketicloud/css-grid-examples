@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>05-Implicit-Grid</title>
+    <link rel="stylesheet" href="../01-common-style/shared.css" />
+    <style>
+      /* comment #weird-item for every style rule except first */
+      /* It will give you how grid positions the item if you give weird style rule */
+      /* #weird-item {
+        grid-column-start: 8;
+      } */
+      body {
+        display: grid;
+        /* grid: 4em 4em / 4em 4em; */
+        /* grid: repeat(2, 4em) / repeat(2, 4em); */
+        /* grid: 4em 4em / 5em 6em; */
+
+        /* 
+          auto-flow => it is a keyword added to the grid shorthand property
+          which determines 'the axis on which new tracks are added implicitely'
+          and their 'sizes'
+         */
+        /* below grid will create automatically grid rows of 4em
+          no matter how many rows are added
+         */
+        /* grid: auto-flow 4em / 5em 6em; */
+
+        /* grid: auto-flow 4em 6em / 5em 6em; */
+
+        /* changing the axis easy too. Just define explicit row heights 
+          and make columns auto-flow
+         */
+        /* grid: 4em 6em / auto-flow 6em; */
+        /* grid: 4em 6em / auto-flow 5em 8em; */
+
+        /* Following 4 lines can be written in one line */
+        /* grid-template-columns: 10em 10em;
+        grid-auto-flow: column;
+        grid-template-rows: 10em 10em;
+        grid-auto-columns: 10em;
+        grid-auto-rows: 10em; */
+
+        grid: 10em 10em / auto-flow 10em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-item">1</div>
+    <div class="grid-item" id="weird-item">2</div>
+    <div class="grid-item">3</div>
+    <div class="grid-item">4</div>
+    <div class="grid-item">5</div>
+    <div class="grid-item">6</div>
+    <div class="grid-item">7</div>
+    <div class="grid-item">8</div>
+    <div class="grid-item">9</div>
+    <div class="grid-item">10</div>
+    <div class="grid-item">11</div>
+  </body>
+</html>
