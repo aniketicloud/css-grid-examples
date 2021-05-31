@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gap in CSS Grid</title>
+    <link rel="stylesheet" href="../01-common-style/shared.css" />
+    <style>
+      body {
+        display: grid;
+        /* You can put any columns in the view. Here it is '1fr 1fr 1fr' */
+        grid: auto-flow min-content / repeat(3, 1fr);
+        /* In CSS, spaces are called gutter. */
+        /* In CSS Grid spaces are called gap */
+
+        /* column-gap => the gap between the each column */
+        /* row-gap => the gap between the each row */
+        /* gap => row-gap column-gap */
+        /* 🚨️️️ grid-row-gap, grid-column-gap, grid-gap Property is obsolete. Avoid using it. Use gap instead */
+        row-gap: 1em;
+        column-gap: 2em;
+        /* gap: 1em; */
+
+        /* !important => for gap at the edges, one would think to put gap
+        but actually put margin to put the space at the edges
+         */
+      }
+      header,
+      footer {
+        grid-column-start: 1;
+        grid-column-end: 4;
+      }
+
+      nav {
+        grid-row-start: 2;
+        grid-row-end: 3;
+      }
+
+      main {
+        grid-column-start: 2;
+        grid-column-end: 4;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- emmet shortcut: header.grid-item{header} -->
+    <header class="grid-item">header</header>
+    <nav class="grid-item">Side Navigation</nav>
+    <main class="grid-item">Main Content</main>
+    <footer class="grid-item">Footer</footer>
+  </body>
+</html>
