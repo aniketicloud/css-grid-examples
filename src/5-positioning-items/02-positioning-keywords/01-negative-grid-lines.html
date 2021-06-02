@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Positioning Keywords</title>
+    <link rel="stylesheet" href="../01-common-style/shared.css" />
+    <style>
+      body {
+        display: grid;
+        grid: auto-flow 5em / repeat(12, 1fr);
+      }
+      /* !important Remember Grid line numbers starts at
+      1 from Left to Right
+      -1 from Right to Left */
+      /* negative number means count from the end */
+
+      /* These could be Header and Footer */
+      #item-1,
+      #item-12 {
+        grid-column-start: 1;
+        /* grid-column-end: 7; */
+        grid-column-end: -1;
+      }
+
+      /* span => Instructs a grid item to 'span' a certain number of grid tracks */
+
+      /* This could be left <nav/> */
+      #item-2 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-end: span 3;
+      }
+
+      /* This could be <main/> */
+      #item-3 {
+        grid-column-start: 3;
+        /* grid-column-end: -3; */
+        /* Here instead of telling the end position,
+        tell how many grid columns you want with "span" */
+        grid-column-end: span 8;
+        grid-row-end: span 4;
+      }
+
+      /* This could be right side <aside/> */
+      #item-4 {
+        /* Use span to automatically determine the start position */
+        grid-column-start: span 2;
+        grid-column-end: -1;
+        grid-row-start: 3;
+        grid-row-end: span 2;
+      }
+
+      /* these items from 5 to 11 could be <img/>,
+      so all we need is one selector 'img' instead of below 4 tags */
+      #item-5,
+      #item-6,
+      #item-7,
+      #item-8 {
+        grid-column-end: span 3;
+        grid-row-end: span 2;
+      }
+
+      /* like before these could be information cards
+      so all we need is one selector 'info-card' instead of below 3 tags */
+      #item-9,
+      #item-10,
+      #item-11 {
+        grid-column-end: span 4;
+        grid-row-end: span 3;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Emmet shortcut div[id="item-$"].grid-item{$}*12 -->
+    <div id="item-1" class="grid-item">1</div>
+    <div id="item-2" class="grid-item">2</div>
+    <div id="item-3" class="grid-item">3</div>
+    <div id="item-4" class="grid-item">4</div>
+    <div id="item-5" class="grid-item">5</div>
+    <div id="item-6" class="grid-item">6</div>
+    <div id="item-7" class="grid-item">7</div>
+    <div id="item-8" class="grid-item">8</div>
+    <div id="item-9" class="grid-item">9</div>
+    <div id="item-10" class="grid-item">10</div>
+    <div id="item-11" class="grid-item">11</div>
+    <div id="item-12" class="grid-item">12</div>
+  </body>
+</html>
