@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Positioning Shorthands</title>
+    <link rel="stylesheet" href="../01-common-style/shared.css" />
+    <style>
+      body {
+        display: grid;
+        grid: auto-flow 5em / repeat(12, 1fr);
+      }
+
+      /* NOTE: I made is little unorthodox to understand in depth */
+
+      /* 1) grid-row => shorthand to define grid-row-start & grid-row-end at once */
+      /* 2) grid-column => shorthand to define grid-column-start & grid-column-end at once */
+
+      #item-2 {
+        /* grid-row/column: start-postion / end-position(or span) */
+        grid-column: 1 / -1;
+        /* instead of giving grid-row/column-end you can give span */
+        grid-row: 1 / span 3;
+      }
+
+      #item-3 {
+        grid-column: 1 / span 2;
+        /* Just trying to overlap on #item-2 */
+        grid-row: 2 / span 2;
+      }
+
+      #item-4 {
+        /* simple grid-row/column with 'span' will assume the start position at 1 */
+        grid-column: span 2;
+        /* simple grid-row/column with 'value' will give start position */
+        grid-row: 5;
+      }
+
+      /* 3) grid-area => shorthand to completely define an ite's position in one property */
+      /* grid-area: row-start / column-start / row-end / column-end */
+      /* #item-10, */
+      /* #item-11, */
+      #item-6 {
+        grid-area: 6 / 3 / 8 / 6;
+        /* you can also write the above line in span */
+        /* grid-area: 6 / 3 / span 2 / span 3; */
+      }
+
+      #item-7 {
+        /* only one span will take default row position according to other items
+        and span for row */
+        grid-area: span 2;
+      }
+      #item-10 {
+        /* Please try one line from this block at one time to see the difference */
+        /* only value in grid area will tell them row-start */
+        /* grid-area: 8; */
+
+        /* row start position / column start position */
+        /* grid-area: 8 / 4; */
+
+        /* row start position / column span */
+        /* grid-area: 8 / span 3; */
+
+        /* row-position / column-position / row-end */
+        /* grid-area: 8 / 4 / 10; */
+        /* grid-area: 8 / 4 / span 5; */
+
+        grid-area: 8 / 4 / span 2 / span 3;
+
+        /* !important => in the end, remember below line  */
+        /* grid-area: row-start / column-start / row-end / column-end */
+      }
+      #item-8 {
+        /* grid-area with 2 will take  */
+        grid-area: span 2 / span 3;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="item-1" class="grid-item">1</div>
+    <div id="item-2" class="grid-item">2</div>
+    <div id="item-3" class="grid-item">3</div>
+    <div id="item-4" class="grid-item">4</div>
+    <div id="item-5" class="grid-item">5</div>
+    <div id="item-6" class="grid-item">6</div>
+    <div id="item-7" class="grid-item">7</div>
+    <div id="item-8" class="grid-item">8</div>
+    <div id="item-9" class="grid-item">9</div>
+    <div id="item-10" class="grid-item">10</div>
+    <div id="item-11" class="grid-item">11</div>
+    <div id="item-12" class="grid-item">12</div>
+  </body>
+</html>
