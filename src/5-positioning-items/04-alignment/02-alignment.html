@@ -11,17 +11,32 @@
       body {
         height: 100%;
       }
-      body {
+
+      .grid-group {
         display: grid;
+        grid: auto-flow 4em / repeat(4, 4em);
+      }
+
+      .container-1 {
+        height: 100%;
+        /* check background without height: 100% */
+        /* background-color: hotpink; */
+
+        justify-content: center;
+        
+        /* check align-content: center without height: 100% */
+        align-content: center;
       }
     </style>
   </head>
   <body>
     <!-- This time emmet is not good to use. Still trying it makes us cloesr to perfection -->
     <!-- .grid-item{$}*2+.grid-item[id="special-item"]{3}+.grid-item{4} -->
-    <div class="grid-item">1</div>
-    <div class="grid-item">2</div>
-    <div class="grid-item" id="special-item">3</div>
-    <div class="grid-item">4</div>
+    <div class="grid-group container-1">
+      <div class="grid-item">1</div>
+      <div class="grid-item">2</div>
+      <div class="grid-item" id="special-item">3</div>
+      <div class="grid-item">4</div>
+    </div>
   </body>
 </html>
