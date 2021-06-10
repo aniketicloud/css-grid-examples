@@ -54,7 +54,7 @@ In above table,
 
 Both 'justify-content' and 'align-content' has same possible properties
 
-|     | property        | alignment                                                   |
+|     | property value  | alignment                                                   |
 | --- | --------------- | ----------------------------------------------------------- |
 | 1   | start (default) | start position                                              |
 | 2   | center          | at the center                                               |

@@ -19,27 +19,123 @@
 
       .container-1 {
         height: 100%;
-        /* check background without height: 100% */
+        /* !important check background without height: 100% */
         /* background-color: hotpink; */
+      }
 
+      /* Remember "justify = horizontal" and "align = vertical" */
+
+      /* Default values of 'justify-content' and 'align-content' : 'start'*/
+      /* !!!important Default values of 'justify-item' and 'align-item' : 'stretch'*/
+      /* For Math nerds: Matrix-position: a11 */
+      .container-1 {
         /* try adding start, center, end, 
         space-between, space-evenly, space-around 
         on both justify (horizontal effect) AND align (vertical effect) */
-        justify-content: center;
+
+        /* ! Here, there is no need to add start value. 'start' is default value
+        It is mentioned here just in case someone wants to change the value with some logic
+        ,like changing from 'center' to 'start' in some requirement */
+        justify-content: start;
 
         /* check align-content: center without height: 100% */
+        align-content: start;
+      }
+
+      /* For Math nerds: Matrix-position: a12 */
+      /* .container-1 {
+        justify-content: center;
+        align-content: start;
+      } */
+
+      /* For Math nerds: Matrix-position: a13 */
+      /* .container-1 {
+        justify-content: end;
+        align-content: start;
+      } */
+
+      /* For Math nerds: Matrix-position: a21 */
+      /* .container-1 {
+        justify-content: start;
         align-content: center;
+      } */
+
+      /* For Math nerds: Matrix-position: a22 */
+      /* .container-1 {
+        justify-content: center;
+        align-content: center;
+      } */
+
+      /* For Math nerds: Matrix-position: a23 */
+      /* .container-1 {
+        justify-content: end;
+        align-content: center;
+      } */
+
+      /* For Math nerds: Matrix-position: a31 */
+      /* .container-1 {
+        justify-content: start;
+        align-content: end;
+      } */
+
+      /* For Math nerds: Matrix-position: a32 */
+      /* .container-1 {
+        justify-content: center;
+        align-content: end;
+      } */
+
+      /* For Math nerds: Matrix-position: a33 */
+      /* .container-1 {
+        justify-content: end;
+        align-content: end;
+      } */
+
+      /* space-between => leave the tracks flush against the edges. No outside space. */
+      /* space-evenly => same space outside as between the tracks  */
+      /* space-around => just half-space on the outside, as it between the tracks */
+      /* Remember "justify = horizontal" and "align = vertical" */
+      .container-1 {
+        /* Play Around to get the proper understanding. */
+        /* Uncomment only one line from both First Part and Second Part to see the difference */
+
+        /* 1) First Part */
+        /* justify-content: start; */
+        /* justify-content: center; */
+        /* justify-content: end; */
+        /* justify-content: space-between; */
+        /* justify-content: space-evenly; */
+        /* justify-content: space-around; */
+
+        /* 2) Second Part */
+        /* align-content: start; */
+        /* align-content: center; */
+        /* align-content: end; */
+        /* align-content: space-between; */
+        /* align-content: space-evenly; */
+        /* align-content: space-around; */
       }
     </style>
   </head>
   <body>
-    <!-- This time emmet is not good to use. Still trying it makes us cloesr to perfection -->
+    <!-- This time emmet is not good to use. Still trying, makes us closer to perfection -->
     <!-- .grid-item{$}*2+.grid-item[id="special-item"]{3}+.grid-item{4} -->
     <div class="grid-group container-1">
       <div class="grid-item">1</div>
       <div class="grid-item">2</div>
       <div class="grid-item" id="special-item">3</div>
       <div class="grid-item">4</div>
+      <div class="grid-item">5</div>
     </div>
+
+    <!-- Experiment alignment when you have two or more different containers -->
+    <!-- Open grid-developer-tool of Firefox Developers Editions,
+    select different colors for different containers, change positions -->
+    <!-- remember the height is 100% -->
+    <!-- <div class="grid-group container-2">
+      <div class="grid-item">5</div>
+      <div class="grid-item">6</div>
+      <div class="grid-item" id="special-item">7</div>
+      <div class="grid-item">8</div>
+    </div> -->
   </body>
 </html>
