@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alignment in CSS Grid</title>
+    <link rel="stylesheet" href="../01-common-style/shared.css" />
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+
+      .grid-group {
+        display: grid;
+        grid: auto-flow 4em / repeat(4, 4em);
+      }
+
+      .container-1 {
+        height: 100%;
+        /* !important check background without height: 100% */
+        /* background-color: hotpink; */
+
+        /* just for demo purpose, the grid-cells are in center of the screen */
+        /* here focus on grid-items that are inside grid-content */
+        justify-content: center;
+        align-content: center;
+      }
+
+      /* Play with properties and values below this */
+
+      /* open grid-developer tool in firefox-developer edition and enable Overlay-grid 
+      to see how the grid cell space is filled by items*/
+
+      /* (1) */
+      /* stretch is the default value for justify-items & align-items */
+      /* that's why the items are not taking all the space of the grid-cell */
+      /* .container-1 {
+        justify-items: start;
+        align-items: start;
+      } */
+
+      /* (2) */
+      /* remove one property (or make value as 'initial'). 
+      That property value will be set to 'stretch' */
+      /* .container-1 {
+        justify-items: start;
+        align-items: initial;
+      } */
+
+      /* (3) */
+      /* justify-self and align-self are applied to individual grid-items */
+      /* here, selecting third grid-cell i.e. div with id of 'spacial-item' */
+      /* #special-item {
+        justify-self: center;
+        align-self: end;
+      } */
+    </style>
+  </head>
+  <body>
+    <!-- This time emmet is not good to use. Still trying, makes us closer to perfection -->
+    <!-- .grid-item{$}*2+.grid-item[id="special-item"]{3}+.grid-item{4} -->
+    <div class="grid-group container-1">
+      <div class="grid-item">1</div>
+      <div class="grid-item">2</div>
+      <div class="grid-item" id="special-item">3</div>
+      <div class="grid-item">4</div>
+      <div class="grid-item">5</div>
+    </div>
+  </body>
+</html>

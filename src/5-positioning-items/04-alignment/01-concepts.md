@@ -52,7 +52,9 @@ In above table,
 
 ---
 
-Both 'justify-content' and 'align-content' has same possible properties
+## justify-content & align-content
+
+Both 'justify-content' and 'align-content' properties has the same possible values as shown in the table below.
 
 |     | property value  | alignment                                                   |
 | --- | --------------- | ----------------------------------------------------------- |
@@ -66,3 +68,38 @@ Both 'justify-content' and 'align-content' has same possible properties
 - 4,5,6 will separate in space and distribute space between them. Difference is with what space leaves on the outside (or extreme ends)
 - Applying these properties to justify means the effect is on horizontal axis
 - Applying these properties to align means the effect is on vertical axis
+
+---
+
+---
+
+## justify-items & align-items
+
+- justify still means from left to right
+- align still means from top to bottom
+- First difference here is that, these two properties will change _items_ that are inside the the content, that is _items inside **ALL** grid cells_
+- Second difference is the default value.
+  - Default value **is NOT start**. Default value is **stretch** other
+  - So if one sets value of justify-items & align-items to _start_, the items inside the content(grid-cell), will no longer fill up the space
+
+Both 'justify-items' and 'align-items' properties has the same possible values as shown in the table below.
+
+|     | property value        | alignment      |
+| --- | --------------------- | -------------- |
+| 1   | **stretch** (default) | start position |
+| 2   | start                 | start position |
+| 3   | center                | at the center  |
+| 4   | end                   | at the end     |
+
+---
+
+## justify-self & align-self (related to items inside the grid-cell)
+
+- These two properties will change _items_ that are inside the the content, that is _items inside **ONE** grid cell_
+
+|     | property value        | alignment      |
+| --- | --------------------- | -------------- |
+| 1   | **stretch** (default) | start position |
+| 2   | start                 | start position |
+| 3   | center                | at the center  |
+| 4   | end                   | at the end     |
