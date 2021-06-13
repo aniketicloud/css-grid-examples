@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grid Accessibility</title>
+    <link rel="stylesheet" href="../01-common-style/shared.css" />
+    <style>
+      body {
+        display: grid;
+        grid: auto-flow 4em / repeat(4, 1fr);
+      }
+
+      /* !important Visual order should be same as Source order */
+      /* Use 'Tab'/ 'Shift + Tab' to navigate the page with keyboard. 
+      Notice order after each tab. 
+      Tab-order changes after explicitly defining the position */
+
+      /* (1) */
+      /* this kicks #item1 out of it's place */
+      #item2 {
+        /* grid-row/column: start-position / end-position */
+        /* grid-row: 1 / 2; */
+        /* grid-column: 1 / 2; */
+
+        /* grid-area: row-start / column-start / row-end / column-end */
+        grid-area: 1 / 1 / 2 / 2;
+      }
+
+      /* (2) */
+      /* CSS Grid makes an empty cell & place the item on next row. */
+      /* Notice Link 5 doesn't take place of the empty space */
+      #item4 {
+        /* only span tells, no matter where you start, span for this amount */
+        grid-column: span 3;
+      }
+
+      /* (3) */
+      /* To fill this empty space, just add dense into grid-auto-flow of the grid-container */
+      /* !important this will change the visual order */
+      /* [grid container] { grid-auto-flow: dense; / dense rows; / dense columns;} */
+      /* dense => Keyword added to 'grid-auto-flow' property
+      ,which will 'flow grid cells' into the 'first empty' grid-area */
+      /* body {
+        grid-auto-flow: dense;
+      } */
+
+      /* (4) */
+      /* order => order through which grid items are displayed */
+      /* defaultvalue of order is 0. */
+      /* anything less or more will be displayed as per the order. */
+      /* This is put item9 at the end */
+      /* #item9 {
+        order: 1;
+      } */
+
+      /* (5) */
+      /* This will put item10 at first */
+      /* !important notice explicit position will be first then order. 
+      you can override #item2 with `grid-area: unset; or grid-area: initial;` */
+      /* #item10 {
+        order: -1;
+      }
+      #item2 {
+        grid-area: initial;
+      } */
+    </style>
+  </head>
+  <body>
+    <!-- emmet shortcut -->
+    <!-- (div.grid-item[id="item$"]>a[href="#"]{Link $})*12 -->
+    <div class="grid-item" id="item1"><a href="#">Link 1</a></div>
+    <div class="grid-item" id="item2"><a href="#">Link 2</a></div>
+    <div class="grid-item" id="item3"><a href="#">Link 3</a></div>
+    <div class="grid-item" id="item4"><a href="#">Link 4</a></div>
+    <div class="grid-item" id="item5"><a href="#">Link 5</a></div>
+    <div class="grid-item" id="item6"><a href="#">Link 6</a></div>
+    <div class="grid-item" id="item7"><a href="#">Link 7</a></div>
+    <div class="grid-item" id="item8"><a href="#">Link 8</a></div>
+    <div class="grid-item" id="item9"><a href="#">Link 9</a></div>
+    <div class="grid-item" id="item10"><a href="#">Link 10</a></div>
+    <div class="grid-item" id="item11"><a href="#">Link 11</a></div>
+    <div class="grid-item" id="item12"><a href="#">Link 12</a></div>
+  </body>
+</html>

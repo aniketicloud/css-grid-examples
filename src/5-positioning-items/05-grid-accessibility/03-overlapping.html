@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grid Accessibility</title>
+    <link rel="stylesheet" href="../01-common-style/shared.css" />
+    <style>
+      body {
+        display: grid;
+        /* grid: auto-flow 4em / repeat(4, 1fr); */
+        /* instead of using fix row size of 4em, add minmax with min-content. Also added static column size of 12em */
+        grid: auto-flow minmax(min-content, 10em) / repeat(4, 12em);
+      }
+
+      #item2 {
+        /* grid-area: row-start / column-start / row-end / column-end */
+        grid-area: 1 / 2 / 2 / 4;
+      }
+
+      /* (1) */
+      /* Item3 is on top of item 2. So text is cut off */
+      /* You can make item 2 on top of item 3 using z-index, like below */
+      /* #item3 {
+        grid-area: 1 / 3 / 4 / 4;
+      }
+      #item2 {
+        z-index: 1;
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="grid-item" id="item1">Item 1</div>
+    <div class="grid-item" id="item2">
+      Item 2. This content may get obscured if another item overlaps it.(like
+      after using explicit position of grid-item)
+    </div>
+    <div class="grid-item" id="item3">Item 3</div>
+    <div class="grid-item" id="item4">Item 4</div>
+  </body>
+</html>
