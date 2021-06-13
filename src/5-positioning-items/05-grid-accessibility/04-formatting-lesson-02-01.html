@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reformatting 02/01-negative-grid-lines.html</title>
+    <link rel="stylesheet" href="../01-common-style/shared.css" />
+    <style>
+      body {
+        display: grid;
+        grid: auto-flow 5em / repeat(12, 1fr);
+      }
+
+      /* !important `auto` is a keyword indicating that the property 
+      contributes nothing to the grid item’s placement, 
+      indicating auto-placement or a default span of 1 */
+      /* These could be Header and Footer */
+      #item-1,
+      #item-12 {
+        grid-area: auto / 1 / auto / -1;
+      }
+
+      /* This could be left <nav/> */
+      #item-2 {
+        grid-area: auto / 1 / span 3 / 3;
+      }
+
+      /* This could be <main/> */
+      #item-3 {
+        grid-area: 2 / 3 / span 4 / span 8;
+      }
+
+      /* This could be right side <aside/> */
+      #item-4 {
+        grid-area: 3 / 11 / span 2 / -1;
+      }
+
+      /* these items from 5 to 11 could be <img/>,
+      so all we need is one selector 'img' instead of below 4 tags */
+      #item-5,
+      #item-6,
+      #item-7,
+      #item-8 {
+        grid-area: auto / auto / span 2/ span 3;
+      }
+
+      /* like before these could be information cards
+      so all we need is one selector 'info-card' instead of below 3 tags */
+      #item-9,
+      #item-10,
+      #item-11 {
+        grid-area: auto / auto / span 3 / span 4;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Emmet shortcut div[id="item-$"].grid-item{$}*12 -->
+    <div id="item-1" class="grid-item">1</div>
+    <div id="item-2" class="grid-item">2</div>
+    <div id="item-3" class="grid-item">3</div>
+    <div id="item-4" class="grid-item">4</div>
+    <div id="item-5" class="grid-item">5</div>
+    <div id="item-6" class="grid-item">6</div>
+    <div id="item-7" class="grid-item">7</div>
+    <div id="item-8" class="grid-item">8</div>
+    <div id="item-9" class="grid-item">9</div>
+    <div id="item-10" class="grid-item">10</div>
+    <div id="item-11" class="grid-item">11</div>
+    <div id="item-12" class="grid-item">12</div>
+  </body>
+</html>
