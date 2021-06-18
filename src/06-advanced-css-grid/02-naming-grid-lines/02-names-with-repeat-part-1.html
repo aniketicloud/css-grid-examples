@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid line names with Repeat - CSS Grid</title>
+    <link rel="stylesheet" href="../01-common-style/shared.css" />
+    <style>
+      body {
+        display: grid;
+
+        /* Recap => Repeat of (first-col-7em / second-col-12em / third-col-10em / fourth-col-5em) in a row.
+        This will add repeat of 3 grid-cells, as many times in one row as the screen allows.
+        that is how many times as it can fill the screen */
+
+        /* !important edges are different than blocks.
+        In simple terms, edges are related to screen size; blocks are related to only one repeat grid track sizes */
+        /* grid-column: 1 / -1; is different than grid-column: 1 / 5; they both suggest start and end.
+        Take notice of which start and which end */
+
+        /* grid-template-columns: [left-edge] repeat(auto-fill, [block-start] 7em 12em [mid-point] 10em 5em [block-end]) [right-edge]; */
+        grid-template-columns:
+          [left-edge]
+          repeat(
+            auto-fill,
+            [block-start] 7em 12em [mid-point] 10em 5em [block-end]
+          )
+          [right-edge];
+      }
+
+      /* Only first time with this style rule. After that comment this rule and go to #article1,2,3... */
+      /* article {
+        grid-column: block-start / block-end;
+      } */
+
+      #article1 {
+        /* grid-column: 1 / -1; */
+        grid-column: left-edge / right-edge;
+      }
+
+      #article2 {
+        /* grid-column: 1 / 5; */
+        grid-column: block-start / block-end;
+      }
+
+      #article3 {
+        grid-column: block-start / mid-point;
+      }
+
+      #article4 {
+        /* Check these one at a time, and see the difference */
+        /* grid-column: mid-point / span 1; */
+
+        /* grid-column: mid-point / span 2; */
+        /* grid-column: mid-point / block-end; */
+
+        /* Check these two in wider screen size */
+        /* grid-column: mid-point / -1; */
+        /* grid-column: mid-point / right-edge; */
+
+        /* this one does not take next mid-point */
+        /* grid-column: mid-point / mid-point; */
+
+        /* this is also invalid. Here, repeat doesnt make circular grid-names */
+        /* grid-column: block-end / mid-point; */
+
+        /* grid-column: mid-point / span 3; */
+
+        /* check how it renders in different screen sizes. */
+        grid-column: span 4;
+      }
+
+      /* !important For selection of particular repeat, check next */
+      /* 03-names-with-repeat-part-2.html */
+    </style>
+  </head>
+  <body>
+    <!-- article.grid-item[id="article$"]{Article $}*4 -->
+    <!-- while understanding start with only 4 articles -->
+    <article class="grid-item" id="article1">Article 1</article>
+    <article class="grid-item" id="article2">Article 2</article>
+    <article class="grid-item" id="article3">Article 3</article>
+    <article class="grid-item" id="article4">Article 4</article>
+    <article class="grid-item" id="article5">Article 5</article>
+  </body>
+</html>

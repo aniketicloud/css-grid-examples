@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid line names with Repeat - CSS Grid</title>
+    <link rel="stylesheet" href="../01-common-style/shared.css" />
+    <style>
+      body {
+        display: grid;
+        grid-template-columns:
+          [left-edge] repeat(auto-fill, [block-start] 10em 5em [block-end])
+          [right-edge];
+      }
+
+      /* !important Giving a number after the grid-line-name, suggests the instance number */
+
+      /* !important Remember the smaller screen size will give wrong result with repeat, autofill */
+
+      /* (1) */
+      #article1 {
+        /* 2 suggests instance number 2 on the track */
+        /* grid-column: block-start 2; */
+
+        /* 3 suggests instance number 3 on the track */
+        /* Check the grid lines in narrow screen size and higher instance number */
+        grid-column: block-start 3;
+      }
+
+      /* (2) */
+      #article1 {
+        grid-column: block-start 3 / block-end 3;
+      }
+      #article2 {
+        grid-column: block-start 2 / block-end 3;
+
+        /* start at second block-start. 
+        Then span 2 to second instance of the block-end you come across */
+        /* here grid col start at track 3.
+        next block-end is at track 5. This is first span i.e. span 1
+        But we have to span 2 times. So second block-end is at track 7 */
+        /* grid-column: block-start 2 / span 2 block-end; */
+
+        /* start at third block-start. 
+        Then, calculate block-end 2 times after the start position.
+        If it was span 5, then calculate block-end 5 times after the start position. */
+        /*  */
+        /* Here, check with narrow window size. 
+        Previously, browser windows were used to crash. */
+        grid-column: block-start 3 / span 2 block-end;
+      }
+
+      /* !important
+        - One line can have multiple names
+        - One name can be used multiple times.
+        - Naming grid-lines is flexible and powerful.
+       */
+    </style>
+  </head>
+  <body>
+    <!-- article.grid-item[id="article$"]{Article $}*5 -->
+    <article class="grid-item" id="article1">Article 1</article>
+    <article class="grid-item" id="article2">Article 2</article>
+  </body>
+</html>
