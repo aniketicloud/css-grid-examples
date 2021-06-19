@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Implicit Grid Area Names - CSS Grid</title>
+    <link rel="stylesheet" href="../01-common-style/shared.css" />
+    <style>
+      /* Height is given to fill the whole page */
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        display: grid;
+
+        grid-template-rows:
+          [header-start]
+          minmax(min-content, 5em)
+          [header-end nav-start main-start aside-start]
+          auto
+          [nav-end main-end aside-end footer-start]
+          minmax(min-content, 5em)
+          [footer-end];
+
+        grid-template-columns: 
+        [header-start nav-start footer-start]
+        10em 
+        [nav-end main-start]
+        2fr 
+        [main-end aside-start]
+        1fr
+        [header-end aside-end footer-end];
+      }
+
+      header {
+        grid-area: header;
+      }
+      nav {
+        grid-area: nav;
+      }
+      main {
+        grid-area: main;
+      }
+      aside {
+        grid-area: aside;
+      }
+      footer {
+        grid-area: footer;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="grid-item">Header</header>
+    <nav class="grid-item">Side Nav</nav>
+    <main class="grid-item">Main</main>
+    <aside class="grid-item">Aside</aside>
+    <footer class="grid-item">Footer</footer>
+
+    <!-- For demo of implicit grid-line-name -->
+    <!-- <div class="contrast-item grid-item">New Contrast Item</div> -->
+  </body>
+</html>

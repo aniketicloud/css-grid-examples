@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Named Grid Areas - CSS Grid</title>
+    <link rel="stylesheet" href="../01-common-style/shared.css" />
+    <style>
+
+      /* Height is given to fill the whole page */
+      html,body {
+        height: 100%;
+      }
+      
+      body {
+        display: grid;
+
+        /* grid-template-areas => Defines named area of  */
+
+        /* just keep only this property and check it in browser dev tools with display-area-names */
+        grid-template-areas:
+          'header header header'
+          'nav    main   aside'
+          'footer footer footer';
+        /* First=> add names to the area like above. Here it is 3 x 3 matrix */
+
+        /* Second=> define grid track sizes like below */
+        /* Recap=> min-content = make track as small as possible, without breaking words */
+        /* Recap=> minmax(min size, max-size) = Function to specify minimum and maximum values for a track */
+        grid-template-rows: minmax(min-content, 5em) auto minmax(min-content, 5em);
+        grid-template-columns: 10em 2fr 1fr;
+      }
+
+      /* Third=> tell which element to go in which grid-area */
+      header { grid-area: header;}
+      nav { grid-area: nav;}
+      main { grid-area: main;}
+      aside { grid-area: aside;}
+      footer {grid-area: footer;}
+      /* Fourth=> Voila ...!! We never defined a single grid line  */
+      
+    </style>
+  </head>
+  <body>
+    <header class="grid-item">Header</header>
+    <nav class="grid-item">Side Nav</nav>
+    <main class="grid-item">Main</main>
+    <aside class="grid-item">Aside</aside>
+    <footer class="grid-item">Footer</footer>
+  </body>
+</html>

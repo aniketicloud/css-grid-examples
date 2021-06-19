@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Implicit Grid Line Names - CSS Grid</title>
+    <link rel="stylesheet" href="../01-common-style/shared.css" />
+    <style>
+
+      /* Height is given to fill the whole page */
+      html,body {
+        height: 100%;
+      }
+      
+      body {
+        display: grid;
+
+        /* grid-template-areas => Defines named area of  */
+
+        /* just keep only this property and check it in browser dev tools with display-area-names */
+        grid-template-areas:
+          'header header header'
+          'nav    main   aside'
+          'footer footer footer';
+        /* First=> add names to the area like above. Here it is 3 x 3 matrix */
+
+        /* Second=> define grid track sizes like below */
+        /* Recap=> min-content = make track as small as possible, without breaking words */
+        /* Recap=> minmax(min size, max-size) = Function to specify minimum and maximum values for a track */
+        grid-template-rows: minmax(min-content, 5em) auto minmax(min-content, 5em);
+        grid-template-columns: 10em 2fr 1fr;
+      }
+
+      /* Third=> tell which element to go in which grid-area */
+      header { grid-area: header;}
+      nav { grid-area: nav;}
+      main { grid-area: main;}
+      aside { grid-area: aside;}
+      footer {grid-area: footer;}
+      /* Fourth=> Voila ...!! We never defined a single grid line  */
+      
+      /* !important */
+      /* For demo of implicit grid-line-name */
+      .contrast-item {
+        /* Just to make the items/content at center */
+        display: grid;
+        justify-content: center;
+
+        /* Color is transparent to see both grid-item and contrast-item*/
+        /* contrast-item is overlapping other grid-item */
+        background: rgba(255, 0, 0, 0.432);
+
+        /* from top-down, it starts at nav-start or main-start or aside-start */
+        grid-row-start: aside-start;
+        /* from top-down, it ends at footer-end */
+        grid-row-end: footer-end;
+
+        /* from left-right, it starts at nav-end or main-start*/
+        /* grid-column-start: nav-end; */
+        grid-column-start: main-start;
+
+        /* from left-right, it ends at main-end or aside-start*/
+        grid-column-end: aside-start;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="grid-item">Header</header>
+    <nav class="grid-item">Side Nav</nav>
+    <main class="grid-item">Main</main>
+    <aside class="grid-item">Aside</aside>
+    <footer class="grid-item">Footer</footer>
+
+    <!-- For demo of implicit grid-line-name -->
+    <!-- <div class="contrast-item grid-item">New Contrast Item</div> -->
+  </body>
+</html>
