@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid property - CSS Grid</title>
+    <link rel="stylesheet" href="../01-common-style/shared.css" />
+    <style>
+      /* this is continued from src\06-advanced-css-grid\03-naming- grid-areas\03-implicit-grid-line-names.html*/
+      html,
+      body {
+        height: 100%;
+      }
+
+      /* body {
+        display: grid;
+
+        grid-template-areas:
+          'header header header'
+          'nav    main   aside'
+          'footer footer footer';
+        grid-template-rows: minmax(min-content, 5em) auto minmax(min-content, 5em);
+        grid-template-columns: 10em 2fr 1fr;
+      } */
+
+      /* above code can be reduced to single property: grid */
+      body {
+        display: grid;
+
+        /* First: start with defining rows and columns i.e.grid-template-rows/columns */
+        grid: minmax(min-content, 5em) auto minmax(min-content, 5em) / 10em 2fr 1fr;
+
+        /* Second: define the area names before the track size: .
+        ( area names inside quotation marks, because CSS expects area names inside quotation marks) */
+        grid: 'header header header' minmax(min-content, 5em) 'nav    main   aside' auto 'footer footer footer' minmax(
+            min-content,
+            5em
+          ) / 10em 2fr 1fr;
+
+        /* Third: improve readability with white space. */
+        /* - keep each row in one line */
+        /* - add white space to line up the cells. Make it matrix like structure */
+        /* - add column widths on the bottom line */
+        grid:
+          'header header header' minmax(min-content, 5em)
+          'nav main aside' auto
+          'footer footer footer' minmax(min-content, 5em) /
+          10em 2fr 1fr;
+      }
+
+      header {
+        grid-area: header;
+      }
+      nav {
+        grid-area: nav;
+      }
+      main {
+        grid-area: main;
+      }
+      aside {
+        grid-area: aside;
+      }
+      footer {
+        grid-area: footer;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="grid-item">Header</header>
+    <nav class="grid-item">Side Nav</nav>
+    <main class="grid-item">Main</main>
+    <aside class="grid-item">Aside</aside>
+    <footer class="grid-item">Footer</footer>
+  </body>
+</html>
