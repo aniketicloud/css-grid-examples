@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Design - CSS Grid</title>
+    <link rel="stylesheet" href="../01-common-style/shared.css" />
+    <style>
+      /* Tip: Ctrl U => to go back to previous cursor position in VS-Code */
+
+      /* Workflow for Responsive Design */
+      /* Step 1 => Start with the most narrow breakpoint(e.g. mobile) */
+      /* It's easier to start small and figure out how to corporate extra space on wide breakpoint */
+      /* Step 2 => Make your window wider until the layout needs adjustmets */
+      /* Step 3 => Add  a new breakpoint and make the adjustment */
+      /* Step 4 => Repeat 2-3 */
+
+      body {
+        display: grid;
+        /* First we have 5 elements. That is 5 rows and one column. 5 x 1 matrix */
+
+        /* Step 1 => start with narrow breakpoint */
+        grid:
+          'header' 5em
+          'nav   ' 5em
+          'main  ' 20em
+          'aside ' 10em
+          'footer' 5em /
+          1fr;
+      }
+
+      header {
+        grid-area: header;
+      }
+      nav {
+        grid-area: nav;
+      }
+      main {
+        grid-area: main;
+      }
+      aside {
+        grid-area: aside;
+      }
+      footer {
+        grid-area: footer;
+      }
+
+      /* Step 2 => Open Responsive dev tool of browser to get the next breakpoint */
+      /* We got 600px. Make a media query like below */
+
+      /* Step 3 => adding breakpoint and makng adjustments of elements */
+      /* Here we are making 2 columns. 
+      Second column is twice the width of first column, so main is twice the width of nav */
+      @media screen and (min-width: 600px) {
+        body {
+          grid: 'header header' 5em
+                'nav    main  ' 20em
+                'aside  aside ' 10em
+                'footer footer' 5em / 
+                1fr 2fr;
+        }
+      }
+
+      /* Step 4 => Repeating steps 2 and 3 */
+      /* 3 x 3 matrix with main twice of nav/aside */
+      @media screen and (min-width: 800px) {
+        body {
+          grid: 'header header header' 5em
+                'nav    main   aside ' 20em
+                'footer footer footer' 5em / 
+                1fr 2fr 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="grid-item">Header</header>
+    <nav class="grid-item">Side Nav</nav>
+    <main class="grid-item">Main</main>
+    <aside class="grid-item">Aside</aside>
+    <footer class="grid-item">Footer</footer>
+  </body>
+</html>
