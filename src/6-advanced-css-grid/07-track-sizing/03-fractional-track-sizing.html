@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Sizing - CSS Grid</title>
+  <link rel="stylesheet" href="../01-common-style/shared.css">
+  <style>
+    body{
+      /* Removed default margin & padding to see 
+      how exactly track size looks in browser dev tools */
+      margin: 0;
+      padding: 0;
+
+      display: grid;
+      /* Open browser dev tool for checking responsiveness of the page */
+
+      /* 1fr => it is used to Divide up the _remaining space_ */
+      /* In this example, track size of 1 fr column will be min content.
+      Meaning, this min content will depend on the items inside this element  */
+
+      /* (1) In browser, go to 200px plus min-content of 1fr column. 
+      Below this, the track size won't decrease, 
+      becasue we have min (100px two times ) + (min-content of 1fr column) ~ +200px */
+      /* (2) In browser, go to 200px plus min-content of 1fr column. 
+      Above this, the track size won't increase,
+      becasue we have max (200px two times) + (min-content of 1fr column) ~ +400px */
+      /* (3) Till this point 1fr column will not change. 
+      It will fullfill other static sizes first. */
+      /* (4) After this, size of 1fr column will start to increase */
+      grid-template: 5em / repeat(2, minmax(100px,200px)) 1fr 1fr;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-item">minmax(100px,200px)</div>
+  <div class="grid-item">minmax(100px,200px)</div>
+  <div class="grid-item">1fr</div>
+  <div class="grid-item">1fr</div>
+</body>
+</html>

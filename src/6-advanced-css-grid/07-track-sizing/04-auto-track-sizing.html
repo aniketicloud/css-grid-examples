@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Sizing - CSS Grid</title>
+  <link rel="stylesheet" href="../01-common-style/shared.css">
+  <style>
+    body{
+      /* Removed default margin & padding to see 
+      how exactly track size looks in browser dev tools */
+      margin: 0;
+      padding: 0;
+
+      display: grid;
+      /* Open browser dev tool for checking responsiveness of the page */
+
+      /* 1fr => it is used to Divide up the _remaining space_ */
+      /* In this example, track size of 1 fr column will be min content.
+      Meaning, this min content will depend on the items inside this element  */
+
+      /* auto => auto takes min-content and max-content into consideration */
+
+      /* Go to 190px in browser responsive dev tool, and increase the width slowly */
+      /* First, CSS grid will fullfil 1st columns minmax condition of 100-200px  */
+      /* Second, it will full auto. Means, it will go to max-content */
+      /* Third, after fullfilling auto condtion, 1fr column will increase */
+      /* !important auto track will never grow larger than max contnent. 1fr will take the remaining space */
+      grid-template-columns: minmax(100px, 200px) 1fr auto auto;
+
+      /* !important if there was not 1fr, then the remaining space will be taken by auto track */
+      /* grid-template-columns: minmax(100px, 200px) auto auto auto; */
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-item">minmax(100px,200px)</div>
+  <div class="grid-item">1fr</div>
+  <div class="grid-item">auto without divs like next</div>
+  <div class="grid-item">
+    <p>auto</p>
+    <p>min-content to max-cotent</p>
+  </div>
+</body>
+</html>

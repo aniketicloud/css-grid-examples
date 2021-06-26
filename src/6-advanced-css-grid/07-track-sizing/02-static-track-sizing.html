@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Sizing - CSS Grid</title>
+  <link rel="stylesheet" href="../01-common-style/shared.css">
+  <style>
+    body{
+      /* Removed default margin & padding to see 
+      how exactly track size looks in browser dev tools */
+      margin: 0;
+      padding: 0;
+
+      display: grid;
+      /* Open browser dev tool for checking responsiveness of the page */
+
+      /* (1) In browser, go to 300px. 
+      Below this, the track size won't decrease, 
+      becasue we have min 100px three times = 300px */
+      /* (2) In browser, go to 600px. 
+      Above this, the track size won't increase,
+      becasue we have max 200px three times = 600px */
+      grid-template: 5em / repeat(3, minmax(100px,200px));
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-item">minmax(100px,200px)</div>
+  <div class="grid-item">minmax(100px,200px)</div>
+  <div class="grid-item">minmax(100px,200px)</div>
+</body>
+</html>
