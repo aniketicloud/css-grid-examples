@@ -4,16 +4,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Home - Bethany's Pie Shop</title>
-    <link rel="stylesheet" href="../01-common-style/css/pie-shop.css" />
+    <link rel="stylesheet" href="css/pie-shop.css" />
+    <link rel="stylesheet" href="css/grid.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap"
       rel="stylesheet"
     />
+
     <style>
       body {
         display: grid;
         grid: auto-flow min-content / repeat(12, 1fr);
-        gap: 1em;
+        grid-gap: 1em;
         margin: 1em;
       }
 
@@ -31,61 +33,26 @@
         grid-area: 2 / 5 / 4 / 13;
       }
 
-      /* Second => add common class selector. Select img inside .pies  */
       .pies {
-        background: #23cfa7;
-        border-radius: 0.25em;
-        padding: 0.5em;
-      }
-      .pies img {
-        border-radius: 0.25em;
-        grid-column: span 3;
-      } /* Second ends here */
-
-      /* Third => Workaround to get better layout of images*/
-      /* by making common selector another grid and spanning for the areas we want */
-      .pies {
-        /* making it grid */
-        display: grid;
-
-        /* spanning this div from start to end */
         grid-column: 1 / -1;
-
-        /* add 12 column grid. AGAIN ...! */
-        grid-template-columns: repeat(12, 1fr);
-
-        /* add grid gap. */
-        /* !important This is where the gaps between parent grid and child grid looks inconsistent */
-        /* open browser dev tool and see how thes two grid tracks looks */
-        /* this problem is solved by subgrid. Check Next step(Fourth Step) */
-        gap: 0.5em;
+        display: grid;
+        grid: auto-flow max-content / repeat(12, 1fr);
+        grid-gap: 0.5em;
       }
 
-      /* Fourth => adding subgrid. */
-      /* grid-template-columns: repeat(12, 1fr) is replaced with below. 
-      Here, the subgrid will inherit column property from the parent grid */
-      /* Gap is not required to add again. So here, setting it to initial/unset. 
-      If this was not a demo, gap would have been removed.
-      Actually, we can add row-gap/column-gap separately too*/
-      .pies {
-        grid-template-columns: subgrid;
-        gap: initial;
-
-        row-gap: 0.5em;
+      .pies img {
+        grid-column: span 3;
       }
     </style>
   </head>
   <body>
     <header>Current Promotion</header>
-
     <aside>
       <a href="#"
         ><img src="../../../public/01-bethany-pie-shop/img/bethanylogo.png"
       /></a>
-
       <p>Bakery Street 555 Brussels, Belgium</p>
     </aside>
-
     <nav>
       <h2>Browse our pies</h2>
       <ul>
@@ -95,7 +62,6 @@
         <li><a href="#">Seasonal pies</a></li>
       </ul>
     </nav>
-
     <main>
       <h1>Welcome to Bethany's Pie Shop</h1>
       <img src="../../../public/01-bethany-pie-shop/img/bethany-fullsize.jpg" />
@@ -116,8 +82,6 @@
       </p>
       <a href="#" class="cta">Find Your Perfect Pie</a>
     </main>
-
-    <!-- First => Creating a div to include all images to apply styles -->
     <div class="pies">
       <img
         id="pie1"
@@ -152,7 +116,6 @@
         src="../../../public/01-bethany-pie-shop/img/rhubarbpiesmall.jpg"
       />
     </div>
-
     <footer>© 2020 Bethany's Pie Shop - All rights reserved</footer>
   </body>
 </html>
